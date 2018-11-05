@@ -1,0 +1,50 @@
+<div class="row order-details ">
+  <h5 class="text-center text-uppercase">YOUR ORDER {{restaurantName}}</h5>
+  <div class="col-md-12">
+    <div *ngIf="cartList.length==0"class="row empty-cart">
+        <p>
+            You haven’t added anything to your 
+            cart yet! Start adding your favourite
+             dishes
+        </p>
+      </div> 
+    <li class="row" *ngFor="let c of cartList;let i=index" >
+
+      <span class=" item-name">{{c.food_name}}</span>
+      <div class="quantity">
+        <span (click)="inc(i)">
+          <i class="ion-plus"></i>
+        </span >
+        <span  class="item-qty">{{c.quantity}}</span>
+        <span (click)="dec(i)">
+          <i class="ion-minus"></i>
+        </span>
+      </div>
+      <span class="item-price ">BDT {{c.price}}</span>
+      <span class="remove-item" (click)="removeCartItem(i)" >X</span>
+    </li>
+    <!-- <li class="row">
+        <span class="item-count">1 x </span> 
+        <span class=" item-name" >Raaj Darbar Special Biriyani</span>
+        <span class="item-price " >BDT 120</span>
+        <span class="remove-item ">X</span>
+      </li> -->
+
+  </div>
+</div>
+<div class="row order_total_balance">
+  <p class="col-md-12">Subtotal
+    <span>BDT {{subTotal}}</span>
+  </p>
+  <p class="col-md-12">Delivery Fee
+    <span>BDT {{delivery_fee}}</span>
+  </p>
+  <p class="col-md-12">
+    <b>Total (incl VAT)
+      <span>BDT {{totalPrice}}</span>
+    </b>
+  </p>
+</div>
+<div class="row order-submit ">
+  <button class="btn btn-block cart-btn col-md-12" (click)="checkoutCart()">Checkout</button>
+</div>

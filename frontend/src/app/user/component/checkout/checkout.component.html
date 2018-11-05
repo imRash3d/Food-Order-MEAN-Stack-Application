@@ -1,0 +1,87 @@
+<!-- SPINNER OPEN  -->
+<div class="spinner" id="spinner">
+
+
+<div class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+</div>
+<!-- SPINNER CLOSE -->
+
+
+
+
+<div class="container">
+<!-- ORDER SUCCESS MODAL START-->
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is a modal.
+    </div>
+  </ng-template>
+
+  <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+ 
+  <!-- ORDER SUCCESS MODAL END-->
+  <div class="row justify-content-center">
+    <div class="col-md-7 checkout-form">
+
+      <form (ngSubmit)="orderFood(orderForm)" #orderForm=ngForm>
+        <div class="row checkout-details">
+          <h6>1. DELIVERY DETAILS</h6>
+          <div class="form-group col-md-12">
+            <select name="date" [(ngModel)]=orderDaysArray[0] type="text" class="form-control">
+              <option *ngFor="let date of orderDaysArray" value="{{date}}">{{date}}</option>
+ 
+            </select>
+          </div>
+
+        </div>
+        <div class="row checkout-details">
+          <h6>1. DELIVERY ADDRESS</h6>
+          <div class="form-group col-md-12">
+            <input type="text" name="address" ngModel value="Mirpur 12, Dhaka Cant" class="form-control">
+          </div>
+          <div class="form-group col-md-12">
+            <input type="text" name="road_no" ngModel placeholder="Road No (Optional)" class="form-control">
+          </div>
+          <div class="form-group col-md-12">
+              <textarea type="text"  name="message" ngModel rows='5' placeholder="Additional Message (Optional)" class="form-control"></textarea>
+            </div>
+
+        </div>
+        <div class="row checkout-details">
+          <div class="col-md-12">
+              <button class="btn btn-block ">Submit</button>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 ">
+      <div class="checkout-cart">
+          <div class="container">
+              <showcart [cartdetails]="cartdetails"></showcart>
+          </div>
+      </div>
+    
+
+    </div>
+  </div>
+</div>

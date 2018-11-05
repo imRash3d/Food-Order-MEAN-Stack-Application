@@ -1,0 +1,51 @@
+<div class="restaurent-info">
+  <img src="./assets/img/res1.webp" class="img-fluid" alt="">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="row">
+
+        <h5 class="vendor-title">{{restaurant.name}}</h5>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="dish-category" *ngFor="let food_item of restaurant.food_item">
+      <div class="container">
+        <div class="col-md-12 ">
+          <h6 class="dish-category-header"> <i class="ion-ios-more"></i> {{food_item.name}} <i class="ion-ios-more"></i></h6>
+          <ul class="dish-list ">
+            <li class="row" (click)="selectDish(dish)" *ngFor="let dish of getDishCategory(food_item)  ">
+              <div class="dish-title col-md-8">
+                <h6>{{dish.food_name}}</h6>
+                <p>
+                  {{dish.description}}
+                </p>
+              </div>
+         
+  
+              <div class="price col-md-2"> {{dish.price}} tk</div>
+  
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="order-info pb-5 mb-5">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="row order_schedule">
+   <p>{{area_code}}</p>
+        <div class="form-group col-md-12">
+          <input type="date" placeholder="Delivery Date" class=" form-control">
+        </div>
+   
+      </div>
+     <div class="row">
+       <cart [dish]="dishItem" [restaurantName]="restaurant.name" [list]="dishIList" [total]="total" [subtotal]="subtotal" [deliveryFee]="delivery_fee" (checkList)="checKCartList($event)"></cart>
+     </div>
+    </div>
+  </div>
+</div>

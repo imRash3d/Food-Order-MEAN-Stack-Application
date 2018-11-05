@@ -1,0 +1,26 @@
+<img src="./assets/img/unnamed.webp" alt="">
+<div class="container">
+  <div class="col-md-12">
+    <div class="row justify-content-center">
+      <div class="search_restaurent col-md-10 ">
+
+        <h1>It's the food you love, delivered</h1>
+      <div class="row search">
+        <div class="form-group col-md-9">
+          <input type="text" (keyup)="filterArea($event)" placeholder="Enter Your Area (e.q. Mirpur,Banani)" class="form-control">
+        </div>
+        <button class="btn col-md-3 btn-search btn-primary">Find ResTaurants</button>
+   
+      </div>
+      <div class="col-md-12 area-list">
+          <ul *ngIf="text" >
+             <li (click)="selectArea(a)" *ngFor="let a of filterAreaList"> {{a.name}}</li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

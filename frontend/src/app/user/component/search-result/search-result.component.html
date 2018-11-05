@@ -1,0 +1,111 @@
+<div class="container mt-5 mb-5 pt-5 ">
+  <div class="row mt-5 filter-box mb-5">
+    <div class="filter-button col-md-12 mb-3 ">
+      <button class="btn btn-block" (click)="enableFilterMode()">
+        <i class="ion-ios-settings-strong"></i> Filters </button>
+    </div>
+    <div class="filter-window col-md-5" *ngIf="filterMode">
+      <div class="row">
+        <h5 class="col-md-12">Budget</h5>
+        <form action="" class="row budget">
+          <input type="text" placeholder="min" class=" mr-3 col-md-3 form-control">
+          <input type="text" placeholder="max" class="mr-2  ml-2 col-md-3 form-control">
+          <button class="btn  ml-3 "> Search</button>
+        </form>
+      </div>
+
+      <div class="row dish-filter">
+        <h5 class="col-md-12 mb-3"> CUISINES</h5>
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control col-md-6" id="">
+          <span>Burgers</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Fast Food</span>
+        </div>
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Chinese</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span>Indian</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Pizza</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Thai</span>
+        </div>
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Italian Food</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Chicken</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Kabab & Grill</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Biryani</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Sandwiches</span>
+        </div>
+
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span>Bengali</span>
+        </div>
+
+        <div class="col-md-6 form-group ">
+          <input type="checkbox" name="" class="form-control" id="">
+          <span> Mexican Food</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="FilterRestaurantArray">
+
+    <div (click)="selectRestaurant(r) "class="col-md-3 search-single-result" *ngFor="let r of FilterRestaurantArray">
+      <div class="card">
+        <img [src]="r.image" class="img-fulid card-img-top" alt="">
+        <div class="card-body">
+          <h6>{{r.name}} </h6>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
